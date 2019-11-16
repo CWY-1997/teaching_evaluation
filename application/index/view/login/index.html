@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>软件工程专业教学管理后台主页</title>
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="shortcut icon" href="__ADMIN__/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="__ADMIN__/css/font.css">
+	<link rel="stylesheet" href="__ADMIN__/css/xadmin.css">
+    <script type="text/javascript" src="__ADMIN__/js/jquer.min.js"></script>
+    <script src="__ADMIN__/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="__ADMIN__/js/xadmin.js"></script>
+</head>
+<body>
+    <!-- 顶部开始 -->
+    <div class="container">
+        <div class="logo"><a href="./index.html">软件工程专业教学系统</a></div>
+        <div class="left_open">
+            <i title="展开左侧栏" class="iconfont">&#xe699;</i>
+        </div>
+        <ul class="layui-nav right" lay-filter="">
+          <li class="layui-nav-item">
+            <a href="javascript:;">{$Request.session.TEA_NAME}</a>
+          </li>
+          <li class="layui-nav-item to-index"><a href="{:url('Common/index')}">退出</a></li>
+        </ul>
+
+    </div>
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+     <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+      <div id="side-nav">
+        <ul id="nav">
+            {if condition="$Request.session.TEA_DUTY eq 0"}
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6b8;</i>
+                    <cite>课程管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="{:url('faculty_management/listFaculty')}">
+                            <i class="iconfont">&#xe699;</i>
+                            <cite>个人课程表</cite>
+                        </a>
+                    </li>
+                    <li>
+                        <a _href="{:url('faculty_management/addFaculty')}">
+                            <i class="iconfont">&#xe6b9;</i>
+                            <cite>班级课程表</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="{:url('faculty_management/deleFaculty')}">
+                            <i class="iconfont">&#xe69d;</i>
+                            <cite>教师课程表</cite>
+                        </a>
+                    </li>
+                    <li>
+                        <a _href="{:url('faculty_management/roleFaculty')}">
+                            <i class="iconfont">&#xe70b;</i>
+                            <cite>在线选课</cite>
+                        </a>
+                    </li>
+                    <li>
+                        <a _href="{:url('faculty_management/passFaculty')}">
+                            <i class="iconfont">&#xe70b;</i>
+                            <cite>授课申请</cite>
+                        </a>
+                    </li>
+                </ul>
+            </li> <!--教职工管理-->
+            {/if}
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe753;</i>
+                    <cite>成绩管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="{:url('faculty_management/listPhoneFaculty')}">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>所有通讯录</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li><!--教职工通通讯录-->
+            {if condition="$Request.session.TEA_DUTY eq 0"}
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6a9;</i>
+                    <cite>资源管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="{:url('classification/listFaculty')}">
+                            <i class="iconfont">&#xe699;</i>
+                            <cite>班级营种列表</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="{:url('classification/addClassification')}">
+                            <i class="iconfont">&#xe6b9;</i>
+                            <cite>班级营种添加</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="{:url('classification/deleClassifi')}">
+                            <i class="iconfont">&#xe69d;</i>
+                            <cite>班级营种删除</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li> <!--班级分类-->
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe74e;</i>
+                    <cite>毕业设计</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="{:url('class_info/listClass')}">
+                            <i class="iconfont">&#xe699;</i>
+                            <cite>班级列表</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="{:url('class_info/addClass')}">
+                            <i class="iconfont">&#xe6b9;</i>
+                            <cite>添加班级</cite>
+                        </a>
+                    </li>
+                    <li>
+                        <a _href="{:url('class_info/deleClass')}">
+                        <i class="iconfont">&#xe69d;</i>
+                        <cite>删除班级信息</cite>
+                         </a>
+                    </li>
+                </ul>
+            </li> <!--班级信息-->
+            {/if}
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe747;</i>
+                    <cite>学生档案</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="{:url('student_fileManage/listStudentFile')}">
+                            <i class="iconfont">&#xe699;</i>
+                            <cite>学生档案列表</cite>
+                        </a>
+                    </li >
+                    {if condition="$Request.session.TEA_DUTY neq 2"}
+                    <li>
+                        <a _href="{:url('student_fileManage/addStudentFile')}">
+                            <i class="iconfont">&#xe6b9;</i>
+                            <cite>学生档案添加</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="{:url('student_fileManage/deleStudentFile')}">
+                            <i class="iconfont">&#xe69d;</i>
+                            <cite>学生档案除名</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>Excel批量导入档案</cite>
+                        </a>
+                    </li >
+                    {/if}
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>Excel批量导出档案</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe705;</i>
+                    <cite>评优管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="{:url('student_registration/listStuden')}">
+                            <i class="iconfont">&#xe699;</i>
+                            <cite>学生报名列表</cite>
+                        </a>
+                    </li >
+                    {if condition="$Request.session.TEA_DUTY neq 2"}
+                    <li>
+                        <a _href="{:url('student_registration/addStudenModel')}">
+                            <i class="iconfont">&#xe6b9;</i>
+                            <cite>学生报名添加</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="{:url('student_registration/deleteStudent')}">
+                            <i class="iconfont">&#xe69d;</i>
+                            <cite>学生报名废弃</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>Excel批量导入报名</cite>
+                        </a>
+                    </li >
+                    {/if}
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>Excel批量导出报名</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe73f;</i>
+                    <cite>统计管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>待开发</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe744;</i>
+                    <cite>账户管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>待开发</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe744;</i>
+                    <cite>功能管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>待开发</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe744;</i>
+                    <cite>用户权限</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>待开发</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe744;</i>
+                    <cite>系统日志</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont">&#xe73f;</i>
+                            <cite>待开发</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="x-slide_left"></div> -->
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+          <ul class="layui-tab-title">
+            <li class="home"><i class="layui-icon">&#xe68e;</i>我的桌面</li>
+          </ul>
+          <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <iframe src="{:url('Index/welcome')}" frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="page-content-bg"></div>
+    <!-- 右侧主体结束 -->
+    <!-- 中部结束 -->
+    <!-- 底部开始 -->
+    <div class="footer">
+        <div class="copyright">Copyright ©2019  All Rights Reserved</div>
+    </div>
+    <!-- 底部结束 -->
+</body>
+</html>

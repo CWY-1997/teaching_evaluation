@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> 学生毕业设计成绩</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="__ADMIN__/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="__ADMIN__/css/font.css">
+    <link rel="stylesheet" href="__ADMIN__/css/xadmin.css">
+    <script type="text/javascript" src="__ADMIN__/js/jquer.min.js"></script>
+    <script type="text/javascript" src="__ADMIN__/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="__ADMIN__/js/xadmin.js"></script>
+    <script type="text/javascript" src="__ADMIN__/js/jquery-1.11.0.min.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="__ADMIN__/html5.min.js"></script>
+    <script src="__ADMIN__/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">成绩管理</a>
+        <a>
+          <cite>毕业设计成绩</cite></a>
+      </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+<div class="x-body">
+    <xblock>
+        <font style="color:#FF5722"> 未显示的成绩请等待公布，如对成绩有疑问请联系相关老师</font>
+    </xblock>
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>年份</th>
+            <th>选题名称</th>
+            <th>选题分数</th>
+            <th>论文撰写分数</th>
+            <th>答辩分数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{$list.user_number}</td>
+            <td>{$list.stu_name}</td>
+            <td><font style="color:#FF5722">{$list.grad_year}年</font></td>
+            {if condition="$list.topic_subject eq ''"}
+            <td><font style="color: #0b927b">待选题</font></td>
+            {/if}
+            {if condition="$list.topic_subject neq ''"}
+            <td><font style="color: #1E9FFF">{$list.topic_subject}</font></td>
+            {/if}
+
+            {if condition="$list.grad_fraction eq ''"}
+            <td><font style="color: #1E9FFF">待公布</font></td>
+            {/if}
+            {if condition="$list.grad_fraction neq ''"}
+            <td><font style="color: #0b927b">{$list.grad_fraction}</font></td>
+            {/if}
+
+            {if condition="$list.grad_inspect eq ''"}
+            <td><font style="color: #0b927b">待公布</font></td>
+            {/if}
+            {if condition="$list.grad_inspect neq ''"}
+            <td><font style="color: #1E9FFF">{$list.grad_inspect}</font></td>
+            {/if}
+
+            {if condition="$list.grad_defence eq ''"}
+            <td><font style="color: #1E9FFF">待公布</font></td>
+            {/if}
+            {if condition="$list.grad_inspect neq ''"}
+            <td><font style="color: #0b927b">{$list.grad_defence}</font></td>
+            {/if}
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

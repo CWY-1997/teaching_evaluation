@@ -1,4 +1,4 @@
-ThinkPHP 5.0
+软件工程专业教学管理系统V0.1.0版本
 ===============
 
 [![Total Downloads](https://poser.pugx.org/topthink/think/downloads)](https://packagist.org/packages/topthink/think)
